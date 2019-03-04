@@ -31,11 +31,11 @@ for line in fin:
     time.append(float(line.split(",")[0]))
     pos.append(float(line.split(",")[1]))
 
-while i < len(time):
-    velNext, accNext = update_system(pos[i], vel[i], acc[i], time[i], time[i+1])
-    vel.append(velNext)
-    acc.append(accNext)
-    i += 1
+#while i < len(time):
+ #   velNext, accNext = update_system(pos[i], vel[i], acc[i], time[i], time[i+1])
+  #  vel.append(velNext)
+   # acc.append(accNext)
+   # i += 1
     
 plt.subplot(3,1,1)
 plt.plot(time, pos, 'r--') 
