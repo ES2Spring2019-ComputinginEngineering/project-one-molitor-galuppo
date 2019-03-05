@@ -34,7 +34,7 @@ plt.figure()
 plt.plot(time, pos, 'r-') 
 plt.xlabel('Time (seconds)')
 plt.ylabel('Angle (radians)')
-plt.title('Angle vs Time')
+plt.title('Unfiltered Angle vs Time')
 plt.xlim((0, 5)) # set x range from 0 to 5 
 plt.grid()
 plt.show()
