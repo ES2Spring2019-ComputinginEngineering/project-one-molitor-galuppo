@@ -24,7 +24,7 @@ while True:
                 finish_time = running_time()
                 elapsed_time1 = (finish_time - start_time)/1000
                 updated_time = elapsed_time1
-                file.write(str(elapsed_time1) + ", " + str(angle) + "," + srt(x) + ", " + str(y) + "\n" )
+                file.write(str(elapsed_time1) + ", " + str(angle) + "," + str(x) + ", " + str(y) + "\n" )
         display.scroll("Done!")
 
 
