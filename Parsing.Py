@@ -18,20 +18,20 @@ time = []
 vel = []
 acc = []
 
-def update_system(pos,vel,acc,time1,time2): #updates the system based on the current values of position, velocity, and acceleration
-    dt = time2-time1
-    currentAccel = (g/L)*math.cos(pos)
-    currentVel = vel + currentAccel*dt
-    return currentVel, currentAccel
-
-
 fin = open("Pendulum Data.csv")
 for line in fin: 
     time.append(float(line.split(",")[0]))
     pos.append(float(line.split(",")[1]))
 
 acc.append((g/L)*math.cos(pos[0]))
-vel.append(acc[0]*(time[1]-time[0]))    
+vel.append(acc[0]*(time[1]-time[0]))   
+ipos = pos[0]
+
+def update_system(pos,vel,acc,time1,time2): #updates the system based on the current values of position, velocity, and acceleration
+    dt = time2-time1
+    currentAccel = (g/L)*math.cos(ipos-pos)
+    currentVel = vel + currentAccel*dt
+    return currentVel, currentAccel
 
 i = 1
 while i < len(time):
