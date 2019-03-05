@@ -10,8 +10,9 @@ while True:
     display.scroll("Press A to Start!")
     sleep(1000)
     if button_a.was_pressed() == True:
+        sleep(1500)
         start_time = running_time()
-        filename = "Pendulum Data"  + ".csv"
+        filename = "Pendulum Data 2"  + ".csv"
         with open(filename, 'w') as file:
             updated_time = 0
             while updated_time < 5:
@@ -19,7 +20,7 @@ while True:
                 sleep(10)
                 x = accelerometer.get_x()
                 y = accelerometer.get_y()
-                angle = math.atan2(x,y)
+                angle = math.atan2(y,x)
                 finish_time = running_time()
                 elapsed_time1 = (finish_time - start_time)/1000
                 updated_time = elapsed_time1
