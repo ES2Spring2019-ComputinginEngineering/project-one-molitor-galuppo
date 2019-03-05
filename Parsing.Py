@@ -27,7 +27,7 @@ acc.append((g/L)*math.cos(pos[0]))
 vel.append(acc[0]*(time[1]-time[0]))   
 ipos = pos[0]
 
-def update_system(pos,vel,acc,time1,time2): #updates the system based on the current values of position, velocity, and acceleration
+def update_system(pos,vel,acc,time1,time2): 
     dt = time2-time1
     currentAccel = (g/L)*math.cos(ipos-pos)
     currentVel = vel + currentAccel*dt
@@ -39,9 +39,7 @@ while i < len(time):
     vel.append(currentVel)
     acc.append(currentAccel)
     i += 1
-    
-print(vel)
-print(acc)
+
 
 plt.subplot(3,1,1)
 plt.plot(time, pos, 'r-') 
