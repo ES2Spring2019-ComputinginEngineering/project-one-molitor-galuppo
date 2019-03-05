@@ -9,6 +9,7 @@ Created on Mon Mar  4 15:22:44 2019
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+
 #Initial Conditions
 g = -9.81
 L = 1 
@@ -20,7 +21,7 @@ acc = []
 def update_system(pos,vel,acc,time1,time2): #updates the system based on the current values of position, velocity, and acceleration
     dt = time2-time1
     currentAccel = (g/L)*math.cos(pos)
-    currentVel = vel + acc*dt
+    currentVel = vel + currentAccel*dt
     return currentVel, currentAccel
 
 
@@ -47,7 +48,7 @@ plt.plot(time, pos, 'r-')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Angle (radians)')
 plt.title('Angle vs Time')
-plt.xlim((0, 5)) # set x range to -1 to 8
+plt.xlim((0, 5)) # set x range from 0 to 5 
 plt.grid()
 
 
@@ -56,7 +57,7 @@ plt.plot(time, vel, 'r-')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Velocity (rad/s)')
 plt.title('Velocity vs Time')
-plt.xlim((0, 5)) # set x range to -1 to 8
+plt.xlim((0, 5)) # set x range from 0 to 5
 plt.grid()
 
 
@@ -65,7 +66,7 @@ plt.plot(time, acc, 'r-')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Acceleration (rad/s^2)')
 plt.title('Acceleration vs Time')
-plt.xlim((0, 5)) # set x range to -1 to 8
+plt.xlim((0, 5)) # set x range from 0 to 5
 plt.grid()
 plt.tight_layout()
 plt.show()
