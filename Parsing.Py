@@ -12,13 +12,13 @@ import math
 
 #Initial Conditions
 g = -9.81
-L = 1 
+L = 0.5 
 pos = []
 time = []
 vel = []
 acc = []
 
-fin = open("Pendulum Data.csv")
+fin = open("Pendulum Data 2.csv")
 for line in fin: 
     time.append(float(line.split(",")[0]))
     pos.append(float(line.split(",")[1]))
@@ -29,7 +29,7 @@ ipos = pos[0]
 
 def update_system(pos,vel,acc,time1,time2): 
     dt = time2-time1
-    currentAccel = (g/L)*math.cos(ipos-pos)
+    currentAccel = (g/L)*math.cos(((math.pi)/2)-pos)
     currentVel = vel + currentAccel*dt
     return currentVel, currentAccel
 
@@ -40,8 +40,8 @@ while i < len(time):
     acc.append(currentAccel)
     i += 1
 
-
-plt.subplot(3,1,1)
+plt.figure()
+#plt.subplot(3,1,1)
 plt.plot(time, pos, 'r-') 
 plt.xlabel('Time (seconds)')
 plt.ylabel('Angle (radians)')
@@ -50,21 +50,23 @@ plt.xlim((0, 5)) # set x range from 0 to 5
 plt.grid()
 
 
-plt.subplot(3,1,2)
-plt.plot(time, vel, 'r-') 
-plt.xlabel('Time (seconds)')
-plt.ylabel('Velocity (rad/s)')
-plt.title('Velocity vs Time')
-plt.xlim((0, 5)) # set x range from 0 to 5
-plt.grid()
-
-
-plt.subplot(3,1,3)
-plt.plot(time, acc, 'r-') 
-plt.xlabel('Time (seconds)')
-plt.ylabel('Acceleration (rad/s^2)')
-plt.title('Acceleration vs Time')
-plt.xlim((0, 5)) # set x range from 0 to 5
-plt.grid()
-plt.tight_layout()
+# =============================================================================
+# plt.subplot(3,1,2)
+# plt.plot(time, vel, 'r-') 
+# plt.xlabel('Time (seconds)')
+# plt.ylabel('Velocity (rad/s)')
+# plt.title('Velocity vs Time')
+# plt.xlim((0, 5)) # set x range from 0 to 5
+# plt.grid()
+# 
+# 
+# plt.subplot(3,1,3)
+# plt.plot(time, acc, 'r-') 
+# plt.xlabel('Time (seconds)')
+# plt.ylabel('Acceleration (rad/s^2)')
+# plt.title('Acceleration vs Time')
+# plt.xlim((0, 5)) # set x range from 0 to 5
+# plt.grid()
+# plt.tight_layout()
+# =============================================================================
 plt.show()
