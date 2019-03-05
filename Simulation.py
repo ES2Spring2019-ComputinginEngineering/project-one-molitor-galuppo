@@ -2,20 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-def update_system(pos,vel,acc,time1,time2): #updates the system based on the current values of position, velocity, and acceleration
-    dt = time2-time1
-    posNext = pos + vel*dt
-    velNext = vel + acc*dt
-    accNext = (g/L)*math.cos(((math.pi)/2)-posNext)
+def update_system(pos,vel,acc,time1,time2):         #updates the system based on the current values of position, velocity, and acceleration
+    dt = time2-time1                                #calculates the time elapsed during this interval
+    posNext = pos + vel*dt                          #calculates the next position based on the time elapsed and the current velocity
+    velNext = vel + acc*dt                          #calculates the next velocity based on the current angular acceleration and time elapsed 
+    accNext = (g/L)*math.cos(((math.pi)/2)-posNext) #calculates the next angular acceleration based on the starting position and the next position 
     return posNext, velNext, accNext
 
 # Initial Conditions
-L = 1                                         #Sets the length of the pendulum in meters                                                    
-g = -9.81                                     #Force of gravity (m/s**2)
-time = np.linspace(0,20,20000)                #Creates a set of times during which the position, velocity, and acceleration of the pendulum will be calculated 
-pos = [math.pi/6]                             #Sets the initial position in radians. This list is appended in the while loop to update the new position 
-vel = [0]                                     #Gives the initial velocity of 0. This list is appended in the while loop, where the velocity is updated based on acceleration and time. 
-acc = [(g/L)*math.cos((math.pi/2)-math.pi/6)] #Calculates the current angular acceleration of the pendulum, based on the starting angle. This list is appended in the while loop to add the new acceleration
+L = 1                                               #Sets the length of the pendulum in meters                                                    
+g = -9.81                                           #Force of gravity (m/s**2)
+time = np.linspace(0,20,20000)                      #Creates a set of times during which the position, velocity, and acceleration of the pendulum will be calculated 
+pos = [math.pi/6]                                   #Sets the initial position in radians. This list is appended in the while loop to update the new position 
+vel = [0]                                           #Gives the initial velocity of 0. This list is appended in the while loop, where the velocity is updated based on acceleration and time. 
+acc = [(g/L)*math.cos((math.pi/2)-math.pi/6)]       #Calculates the current angular acceleration of the pendulum, based on the starting angle. This list is appended in the while loop to add the new acceleration
 
 i = 1
 while i < len(time):
