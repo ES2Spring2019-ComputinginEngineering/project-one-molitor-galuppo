@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import scipy.signal as sig
 
 def update_system(pos,vel,acc,time1,time2):         #updates the system based on the current values of position, velocity, and acceleration
     dt = time2-time1                                #calculates the time elapsed during this interval
@@ -25,9 +26,14 @@ while i < len(time):
     acc.append(accNext)
     i += 1
 
+position2 = np.array(pos)
+time2 = np.array(time)
+maxima, _ = sig.find_peaks(position2, prominence=.02)
+print("The period time for this pendulum length is: ", ((maxima[1]-maxima[0])/1000), " seconds")
+
 #Plots the time elapsed (in seconds) and the anglular position of the pendulum (in radians)
 plt.subplot(3,1,1)
-plt.plot(time, pos, 'r--') 
+plt.plot(time, pos, 'r--', time2[maxima], position2[maxima], 'ko') 
 plt.xlabel('Time (seconds)')
 plt.ylabel('Angle (radians)')
 plt.title('Angle vs Time')
