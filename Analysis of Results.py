@@ -4,6 +4,9 @@
 Created on Tue Mar  5 15:13:57 2019
 
 @author: alexagaluppo"""
+#Project 1: Micro:bit Pendulum
+#Alexa Galuppo and Victoria Molitor 
+#March 6, 2019
 
 #Step 4: Analysis of Results
 #in order to read, analyze, and visualize data
@@ -22,9 +25,12 @@ theta2 = np.arctan2(sig.medfilt(data.x_accel,21), sig.medfilt(data.y_accel,21))
 theta_filt = sig.medfilt(theta) 
     
 
-#Calculate the period of the pendulum
+#Calculate the period of the pendulum and minimizing false positives
 maxima, _ = sig.find_peaks(theta2, prominence=.02)
-print(maxima)
+period_1 = time[maxima[1]] - time[maxima[0]]
+period_2 = time[maxima[2]] - time[maxima[1]]
+period_3 = time[maxima[3]] - time[maxima[2]]
+avg_period = (period_1 + period_2 + period_3)/3
 
 #Plot X Acceleration vs Time
 plt.figure()
@@ -59,6 +65,5 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
-
-    
-#Minimizing false positives
+#Prints the average period length underneath the angular position vs time graph
+print("The average period length is:", avg_period, "seconds")
