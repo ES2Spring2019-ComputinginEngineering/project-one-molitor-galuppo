@@ -27,10 +27,10 @@ theta_filt = sig.medfilt(theta)
 
 #Calculate the period of the pendulum and minimizing false positives
 maxima, _ = sig.find_peaks(theta2, prominence=.02)
+    
 period_1 = time[maxima[1]] - time[maxima[0]]
 period_2 = time[maxima[2]] - time[maxima[1]]
-period_3 = time[maxima[3]] - time[maxima[2]]
-avg_period = (period_1 + period_2 + period_3)/3
+avg_period = (period_1 + period_2)/2
 
 #Plot X Acceleration vs Time
 plt.figure()
@@ -53,6 +53,8 @@ plt.show()
 
 #Calculate theta vs time
 
+#Prints the average period length underneath the angular position vs time graph
+print("The average period length for a pendulum of length 48 cm is", round(avg_period,3), "seconds")
 
 #Plot theta vs time
 plt.subplot(2,1,2)
@@ -65,5 +67,3 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
-#Prints the average period length underneath the angular position vs time graph
-print("The average period length is:", avg_period, "seconds")
