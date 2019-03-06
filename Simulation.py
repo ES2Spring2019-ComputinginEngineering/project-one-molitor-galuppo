@@ -19,7 +19,7 @@ def update_system(pos,vel,acc,time1,time2):         #updates the system based on
     return posNext, velNext, accNext
 
 #Initial Conditions
-L = 0.5                                             #Sets the length of the pendulum in meters                                                    
+L = 0.12                                             #Sets the length of the pendulum in meters                                                    
 g = -9.81                                           #Force of gravity (m/s**2)
 time = np.linspace(0,5,20000)                       #Creates a set of times during which the position, velocity, and acceleration of the pendulum will be calculated 
 pos = [math.pi/6]                                   #Sets the initial position in radians. This list is appended in the while loop to update the new position 
@@ -39,7 +39,8 @@ while i < len(time):
 position2 = np.array(pos)
 time2 = np.array(time)
 maxima, _ = sig.find_peaks(position2, prominence=.02)
-print("The period time for a pendulum of length",L, "meters is", round(time2[maxima[1]]-time2[maxima[0]], 3), " seconds")
+print("The period time for a simulated pendulum of length",L, "meters is", round(time2[maxima[1]]-time2[maxima[0]], 3), " seconds")
+
 
 #Plots the time elapsed (in seconds) and the anglular position of the pendulum (in radians)
 plt.subplot(3,1,1)
