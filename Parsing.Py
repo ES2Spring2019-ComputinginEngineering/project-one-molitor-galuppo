@@ -18,14 +18,13 @@ import math
 
 #Initial Conditions
 g = -9.81
-L = 0.5 
 pos = []
 time = []
 x_accel = []
 y_accel = []
 
 #Reads the raw data from the microbit and splits it into four lists - for time elapsed, calculated angular position, x-acceleration, and y-acceleration.
-fin = open("Pendulum Data 2.csv")
+fin = open("Pendulum Data 48 cm.csv")
 for line in fin: 
     time.append(float(line.split(",")[0]))
     pos.append(float(line.split(",")[1]))
