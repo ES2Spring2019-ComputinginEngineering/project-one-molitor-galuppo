@@ -1,12 +1,11 @@
 #Project 1: Micro:bit Pendulum
 #Alexa Galuppo and Victoria Molitor
 #March 6, 2019
-#Step 3.2 - Create a micro:bit program to log sensor data to a text tile
+#Step 3.2 - Create a micro:bit program to log sensor data to a text file
 
 #Import Statements
 from microbit import *
 import math
-import random as r
 
 #Initial Conditions
 hourglass = Image("99999:09090:00900:09090:99999")
@@ -18,7 +17,7 @@ while True:
     if button_a.was_pressed() == True:
         sleep(1500) #waits 1.5 seconds before beginning data collection to eliminate noisy data at the time of release.
         start_time = running_time() #sets the initial time elapsed to 0
-        filename = "Pendulum Data 48 cm"  + ".csv"
+        filename = "Pendulum Data 12 cm"  + ".csv"
         with open(filename, 'w') as file:
             updated_time = 0
             while updated_time < 5: #collects data for 5 seconds of pendulum motion.
