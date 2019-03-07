@@ -17,10 +17,11 @@ import numpy as np
 import scipy.signal as sig
 import Parsing as data
 
-#will need to bring in time and theta lists from parsing
+#takes lists from the parsing file and converts them to arrays in order to perform calculations
 time = np.array(data.time)
 theta = np.array(data.pos)
 
+#Filters the angular position data in order to minimize noise
 theta2 = np.arctan2(sig.medfilt(data.x_accel,15), sig.medfilt(data.y_accel,15))
 theta_filt = sig.medfilt(theta) 
     
@@ -49,9 +50,6 @@ plt.ylabel('Acceleration (rad/s^2)')
 plt.title('Y Acceleration vs Time')
 plt.grid()
 plt.show()
-
-
-#Calculate theta vs time
 
 #Prints the average period length underneath the angular position vs time graph
 print("The average period length for a pendulum of length 36 cm is", round(avg_period,3), "seconds")
