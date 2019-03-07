@@ -1,6 +1,7 @@
 # Project 1: Micro:bit Pendulum
 
 Alexa Galuppo and Victoria Molitor
+
 March 6, 2019
 
 In this project, Python code was used to plot and analyze the angular movement of a pendulum both from simulated data and from
