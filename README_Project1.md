@@ -1,8 +1,18 @@
 # Project 1: Micro:bit Pendulum
+
 Alexa Galuppo and Victoria Molitor
+
 March 6, 2019
-The goal of this project was to simulate the motion of a pendulum by using accurate physics-based time-step based equations
-to calculate pendulum position, velocity, and acceleration. A pendulum was constructed and files were written to take acceleration values in the x- and y- directions and calculated angular position. Noise from real world data was minimized and the period of the real-world pendulum was calculated. Finally, the simulated and real-world periods were compared for pendulums of different lengths. 
+
+In this project, Python code was used to plot and analyze the angular movement of a pendulum both from simulated data and from
+actual live data obtained using a micro:bit’s sensor. The simulated data is created at a given length using functions that 
+calculate the expected angular acceleration, angular velocity, and angular position over a time interval. Graphs of each of 
+these data sets are then plotted over their respective times and the theoretical period of the pendulum is calculated. As for 
+the real-world data, a physical Lego pendulum attached to a micro:bit was used. The micro:bit was programmed to collect 
+acceleration data in two-dimensions over time which is then converted into the angular position over time. This data set it 
+then filtered to reduce the extraneous data points and plotted. Then, the period of the pendulum is calculated. Finally, in 
+order to explore the differences between using simulated data and real-world data, the graphs and periods from these two 
+sources at various pendulum lengths are compared below.
 
 ## Instructions
 In order to obtain our results for Project 1: Micro:bit Pendulum, run the following files. 
